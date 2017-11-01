@@ -7,7 +7,7 @@
 
   "content_scripts": [
     {
-      "matches": ["https://www.mobireg.pl/*"],
+      "matches": ["https://www.mobireg.pl/*/index.php?*"],
       "js": ["srednia_mobireg.js"]
     }
   ],
