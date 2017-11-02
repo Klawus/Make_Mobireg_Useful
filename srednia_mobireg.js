@@ -5,6 +5,8 @@ let last_result = 0;
 for (let j = 2; j < allDivTr.length;j++){
 	const spans = allDivTr[j].getElementsByTagName("SPAN");
 
+	const td = allDivTr[j].getElementsByTagName("TD");
+
 	const toFloat = [];
 	for(i=0;i<spans.length;i++){
 		toFloat.push(parseFloat(spans[i].textContent));
@@ -19,11 +21,26 @@ for (let j = 2; j < allDivTr.length;j++){
 
 	const rate = toFloat.filter(x => x > 0);
 
+	const weigths = [];
+	for(i=0;i<spans.length;i++){
+		if(isNaN(parseFloat(spans[i].textContent)) == false){
+		weigths.push(parseFloat(td[i+1].getAttribute("weigth")));
+		}
+	}
+
+	const rateWeigths = weigths.filter(x => x > 10);
+
+	let rateWeigth = 0;
+	for(i=0;i<rateWeigths.length;i++){
+		rateWeigth+=rateWeigths[i];
+	}
+
 	let result = 0;
 	for(i=0;i<rate.length;i++){
-		result += rate[i];
+		result += rate[i]*rateWeigths[i];
 	}
-	result /= rate.length;
+
+	result /= rateWeigth;
 
 	result = result.toFixed(2);
 
@@ -54,5 +71,4 @@ last_result = last_result.toFixed(2);
 
 const th = allDivTr[0].getElementsByTagName("TH");
 th[1].innerHTML = "Ocena koncowa to: " + last_result;
-
 
