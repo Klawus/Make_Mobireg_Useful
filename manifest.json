@@ -5,6 +5,11 @@
   "description": "Calculation a avarange.",
   "version": "1.0",
 
+  "browser_action": {
+      "default_title": "Make Mobireg Useful!",
+      "default_popup": "popup.html"
+  },
+
   "content_scripts": [
     {
       "matches": ["https://www.mobireg.pl/*/index.php?*"],
