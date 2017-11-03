@@ -28,7 +28,7 @@ for (let j = 2; j < allDivTr.length;j++){
 		}
 	}
 
-	const rateWeigths = weigths.filter(x => x > 10);
+	const rateWeigths = weigths.filter(x => x > 5);
 
 	let rateWeigth = 0;
 	for(i=0;i<rateWeigths.length;i++){
