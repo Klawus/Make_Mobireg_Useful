@@ -5,9 +5,11 @@ for (let i = 2; i < allDivTr.length; i++) {
 
 	const allTrTd = allDivTr[i].getElementsByTagName("TD");
 
+	let Subject = allTrTd[0].textContent;
+
 	const toFloat = [];
 	const weights = [];
-	for(j=0;j<allTrTd.length-1;j++){
+	for(j=0;j<allTrTd.length;j++){
 		toFloat.push(parseFloat(allTrTd[j].textContent));
 		if(allTrTd[j].textContent == toFloat[j] + "+"){
 			toFloat[j] += 0.5;
@@ -59,9 +61,9 @@ let last_result = 0;
 for(i=0; i<results.length;i++){
 	last_result += results[i];
 }
-
 last_result /= results.length;
 last_result = last_result.toFixed(2);
 
 const th = allDivTr[0].getElementsByTagName("TH");
 th[1].innerHTML = "Ocena koncowa to: " + last_result;
+
